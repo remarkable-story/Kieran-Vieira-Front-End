@@ -32,7 +32,7 @@ const Story = styled.div`
     }
     &:hover{
         transition: 0.2s;
-        transform: scale(1.1);
+        transform: scale(1.04);
     }
 `;
 
