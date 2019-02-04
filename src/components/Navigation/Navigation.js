@@ -1,27 +1,51 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import logo from '../../assets/logo.png'
+
 const NavBar = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
     height: 100px;
-    a{
-        font-size: 2rem;
+    .nav-container{
+        width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .nav-right{
+            a{
+                color: black;
+                text-decoration: none;
+                font-size: 1.8rem;
+                margin-right: 20px;
+                padding: 5px 15px;
+                &:hover{
+                    transition: 0.2s;
+                    color: white;
+                    background-color: #FBA423
+                }
+            }
+            .active{
+                color: white;
+                background-color: #FBA423
+            }
+        }
     }
 `;
 
 const Navigation = props => {
     return(
         <NavBar>
-            <div className="nav-left">
-                <h1>Bountiful</h1>
-            </div>
-            <div className="nav-right">
-                <NavLink exact to="/">Home</NavLink>
-                <NavLink to="/login">Login</NavLink>
-                <NavLink to="/sign-up">Sign Up</NavLink>
+            <div className="nav-container">
+                <div className="nav-left">
+                    <Link to="/"><img src={logo} alt=''/></Link>
+                </div>
+                <div className="nav-right">
+                    <NavLink exact to="/">Home</NavLink>
+                    <NavLink to="/saved-storys">Saved Storys</NavLink>
+                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/sign-up">Sign Up</NavLink>
+                </div>
             </div>
         </NavBar>
     )
