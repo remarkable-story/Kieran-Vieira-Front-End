@@ -42,7 +42,7 @@ const Navigation = props => {
                 </div>
                 <div className="nav-right">
                     <NavLink exact to="/">Home</NavLink>
-                    <NavLink to="/saved-storys">Saved Storys</NavLink>
+                    <NavLink to="/saved-stories">Saved stories</NavLink>
                     <NavLink to="/login">Login</NavLink>
                     <NavLink to="/sign-up">Sign Up</NavLink>
                 </div>

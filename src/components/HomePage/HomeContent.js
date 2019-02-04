@@ -1,8 +1,9 @@
 import React from 'react';
+import StoryContainer from '../StoryComponents/StoryCards/StoryContainer';
 
 const HomeContent = props => {
     return(
-        <h1>HomeContent</h1>
+        <StoryContainer stories={props.stories}/>
     )
 }
 
