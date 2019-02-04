@@ -2,7 +2,7 @@ import React from 'react'
 
 class LoginPageView extends React.Component{
     state = {
-        email: '',
+        username: '',
         password: ''
     }
 
@@ -15,7 +15,7 @@ class LoginPageView extends React.Component{
     loginUser = () => {
         //send user data to backend here
         this.setState({
-            email:'',
+            username:'',
             password:'',
         });
         this.props.history.push('/')
@@ -28,9 +28,9 @@ class LoginPageView extends React.Component{
                 <form onSubmit={this.loginUser}>
                     <input 
                         type="text" 
-                        placeholder="Email" 
-                        name="email" 
-                        value={this.state.email}
+                        placeholder="Username" 
+                        name="username" 
+                        value={this.state.username}
                         onChange={this.handleLoginChange}
                     />
                     <input 

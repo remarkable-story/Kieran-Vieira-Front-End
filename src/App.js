@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Route } from 'react-router'
 
 import HomePageView from './views/HomePageView';
-import LoginPageView from './views/LoginPageView'
+import LoginPageView from './views/LoginPageView';
+import SignUpView from './views/SignUpView';
 import './App.css';
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
         <h1>Router app!</h1>
         <Route exact path='/' component={HomePageView}/>
         <Route path='/login' component={LoginPageView}/>
+        <Route path='/sign-up' component={SignUpView}/>
       </div>
     );
   }
