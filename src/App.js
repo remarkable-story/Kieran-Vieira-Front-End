@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router'
 
+import Navigation from './components/Navigation/Navigation'
 import HomePageView from './views/HomePageView';
 import LoginPageView from './views/LoginPageView';
 import SignUpView from './views/SignUpView';
@@ -10,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Router app!</h1>
+        <Navigation />
         <Route exact path='/' component={HomePageView}/>
         <Route path='/login' component={LoginPageView}/>
         <Route path='/sign-up' component={SignUpView}/>
