@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+
+import { createStory } from '../store/actions'
 
 import CreateStoryForm from '../components/CreateStoryForm/CreateStoryForm'
 
@@ -31,7 +34,7 @@ class CreateStoryView extends React.Component{
     }
 
     submitStory = e => {
-        //send user data to backend here
+        this.props.createStory(this.props.token, this.state.storyInfo);
         e.preventDefault();
         this.setState({
             storyInfo: {
@@ -57,4 +60,15 @@ class CreateStoryView extends React.Component{
     }
 }
 
-export default CreateStoryView
+const mapStateToProps = state => {
+    return{
+        token: state.authenticationReducer.token
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {
+        createStory
+    }
+)(CreateStoryView)

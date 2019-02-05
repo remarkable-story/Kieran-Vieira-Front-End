@@ -21,7 +21,6 @@ const PageContentContainer = styled.div`
 
 class App extends Component {
   render() {
-    console.log(this.props.token)
     return (
       <div className="App">
         <Navigation loggedIn={this.props.token.length > 0}/>

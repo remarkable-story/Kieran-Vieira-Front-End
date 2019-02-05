@@ -17,11 +17,13 @@ export const CREATE_STORY_START = 'CREATE_STORY_START';
 export const CREATE_STORY_SUCCESS = 'CREATE_STORY_SUCCESS';
 export const CREATE_STORY_FAILURE = 'CREATE_STORY_FAILURE';
 
-export const createStory = storyInfo => dispatch => {
+export const createStory = (token,storyInfo) => dispatch => {
     dispatch({ type:CREATE_STORY_START })
-    axios.post('https://remarkable-story-backend.herokuapp.com/api/stories', storyInfo)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+    axios.post('https://remarkable-story-backend.herokuapp.com/api/stories', storyInfo, {headers: {
+        Authorization: token
+    }})
+        .then(res => dispatch({ type:CREATE_STORY_SUCCESS, payload:res.data }))
+        .catch(err => dispatch({ type:CREATE_STORY_FAILURE, payload:err }))
 }
 
 //---------------------------------------Authentication----------------------------
