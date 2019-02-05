@@ -2,11 +2,16 @@ import {
     FETCHING_STORIES_START,
     FETCHING_STORIES_SUCCESS,
     FETCHING_STORIES_FAILURE,
+    FETCHING_STORY_START,
+    FETCHING_STORY_SUCCESS,
+    FETCHING_STORY_FAILURE
 } from '../actions'
 
 const initialState = {
     stories: [],
+    story:[],
     isFetchingStories: false,
+    isFetchingStory: false,
     error: ''
 }
 
@@ -30,6 +35,25 @@ export const storyFetcher = (state = initialState, action) => {
                 ...state,
                 isFetchingStories: false,
                 error: action.payload
+            }
+        case FETCHING_STORY_START:
+            return{
+                ...state,
+                isFetchingStory: true,
+                error: ''
+            }
+        case FETCHING_STORY_SUCCESS:
+            return{
+                ...state,
+                story: action.payload,
+                isFetchingStory: false,
+                error: ''
+            }
+        case FETCHING_STORY_FAILURE:
+            return{
+                ...state,
+                isFetchingStory: false,
+                error: '',
             }
         default:
             return state
