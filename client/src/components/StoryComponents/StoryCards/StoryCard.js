@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
+import stockImg from '../../../assets/stock-1.jpg'
 
 const Story = styled.div`
     width: 300px;
@@ -14,8 +16,8 @@ const Story = styled.div`
     img{
         width: 100%;
         height: auto;
-        border-top-left-radius:15px;
-        border-top-right-radius:15px;
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
     }
     div{
         padding: 15px;
@@ -40,10 +42,10 @@ const StoryCard = props => {
     return(
         <Story>
             <Link to={`story/${props.story.id}`}>
-                <img src={props.story.img} alt=''/>
+                <img src={stockImg} alt=''/>
                 <div>
                     <h1>{props.story.country}</h1>
-                    <p>{props.story.shortDescription}</p>
+                    <p>{props.story.description}</p>
                 </div>
             </Link>
         </Story>

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { } from './'
+import { storyFetcher } from './storyFetcher'
 
 export default combineReducers({
-    
+    storyFetcher
 })

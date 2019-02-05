@@ -1,6 +1,15 @@
 import React from 'react'
+import styled from 'styled-components';
 
 import SignUpForm from '../components/SignUpForm/SignUpForm'
+
+const FormContainer = styled.div`
+    width: 350px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+`;
 
 class SignUpView extends React.Component{
     state = {
@@ -8,9 +17,8 @@ class SignUpView extends React.Component{
             username: '',
             password: '',
             email: '',
-            fullname: '',
             country: '',
-            orgTitle: '',
+            title: '',
         }
     }
 
@@ -32,9 +40,8 @@ class SignUpView extends React.Component{
                 username: '',
                 password: '',
                 email: '',
-                fullname: '',
                 country: '',
-                orgTitle: '',
+                title: '',
             }
         });
         this.props.history.push('/')
@@ -42,14 +49,14 @@ class SignUpView extends React.Component{
 
     render(){
         return(
-            <div>
+            <FormContainer>
                 <h1>Sign Up</h1>
                 <SignUpForm 
                     signUpUser={this.signUpUser}
                     handleSignUpChange={this.handleSignUpChange}
                     userInfo={this.state.userInfo}
-                />
-            </div>
+                /> 
+            </FormContainer>
         )
     }
 }

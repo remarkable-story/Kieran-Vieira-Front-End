@@ -1,6 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import LoginForm from '../components/LoginForm/LoginForm'
+
+const FormContainer = styled.div`
+    width: 350px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+`;
 
 class LoginPageView extends React.Component{
     state = {
@@ -34,14 +43,14 @@ class LoginPageView extends React.Component{
 
     render(){
         return(
-            <div>
+            <FormContainer>
                 <h1>Login</h1>
                 <LoginForm 
                     loginInfo={this.state.loginInfo}
                     handleLoginChange={this.handleLoginChange}
                     loginUser={this.loginUser}
                 />
-            </div>
+            </FormContainer>
         )
     }
 }
