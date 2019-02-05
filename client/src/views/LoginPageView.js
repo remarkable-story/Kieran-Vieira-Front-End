@@ -1,7 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import LoginForm from '../components/LoginForm/LoginForm'
+import { login } from '../store/actions'
+
+import LoginForm from '../components/LoginForm/LoginForm';
 
 const FormContainer = styled.div`
     width: 350px;
@@ -9,6 +13,13 @@ const FormContainer = styled.div`
     padding: 15px;
     border: 1px solid lightgray;
     border-radius: 10px;
+    h2{
+        font-weight: 100;
+        a{
+            font-weight: 600;
+            text-decoration: none;
+        }
+    }
 `;
 
 class LoginPageView extends React.Component{
@@ -30,8 +41,7 @@ class LoginPageView extends React.Component{
 
     loginUser = e => {
         e.preventDefault();
-        console.log(this.state.loginInfo)
-        //send user data to backend here
+        this.props.login(this.state.loginInfo)
         this.setState({
             loginInfo:{
                 username: '',
@@ -50,9 +60,21 @@ class LoginPageView extends React.Component{
                     handleLoginChange={this.handleLoginChange}
                     loginUser={this.loginUser}
                 />
+                <h2> Don't have an account? <Link to="/sign-up">Sign Up</Link> </h2>
             </FormContainer>
         )
     }
 }
 
-export default LoginPageView
+const mapStateToProps = state => {
+    return{
+
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {
+        login
+    }
+)(LoginPageView)

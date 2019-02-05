@@ -1,30 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import { fetchStory } from '../store/actions'
+import { fetchStories } from '../store/actions'
 
 class StoryPageView extends React.Component{
 
     componentDidMount(){
-        this.props.fetchStory(this.props.match.params);
+        this.props.fetchStories();
     }
 
     render(){
+        const storyId = this.props.match.params.id;
+        const singleStory = this.props.stories.find(story => {
+            return `${story.id}` === storyId
+        })
         return(
-            <h1>story here</h1>
+            singleStory ? 
+            <div>
+                <h1>{singleStory.title}</h1> 
+                <h2>{singleStory.country}</h2>
+                <p>{singleStory.story}</p>
+            </div>
+            : <h1>Loading...</h1>
         ) 
     }
 }
 
 const mapStateToProps = state => {
     return{
-        story: state.storyFetcher.story
+        stories: state.storyFetcher.stories
     }
 }
 
 export default connect(
     mapStateToProps,
     {
-        fetchStory
+        fetchStories
     }
 )(StoryPageView)

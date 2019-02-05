@@ -49,6 +49,14 @@ const CreateStoryForm = props => {
                 onChange={props.handleStoryChange}
                 required
             />
+            <h2>Story:</h2>
+            <input 
+                type="text" 
+                name="story" 
+                value={props.storyInfo.story}
+                onChange={props.handleStoryChange}
+                required
+            />
             <h2>Country:</h2>
             <select 
                 name="country" 

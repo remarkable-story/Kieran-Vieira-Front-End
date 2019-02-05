@@ -44,7 +44,6 @@ const Navigation = props => {
                     <NavLink exact to="/">Home</NavLink>
                     <NavLink to="/saved-stories">Saved Stories</NavLink>
                     <NavLink to="/login">Login</NavLink>
-                    <NavLink to="/sign-up">Sign Up</NavLink>
                 </div>
             </div>
         </NavBar>
