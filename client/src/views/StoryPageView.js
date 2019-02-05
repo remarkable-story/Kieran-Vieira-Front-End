@@ -28,7 +28,7 @@ class StoryPageView extends React.Component{
 
 const mapStateToProps = state => {
     return{
-        stories: state.storyFetcher.stories
+        stories: state.storyReducer.stories
     }
 }
 

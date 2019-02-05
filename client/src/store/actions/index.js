@@ -19,7 +19,7 @@ export const CREATE_STORY_FAILURE = 'CREATE_STORY_FAILURE';
 
 export const createStory = storyInfo => dispatch => {
     dispatch({ type:CREATE_STORY_START })
-    axios.post('https://remarkable-story-backend.herokuapp.com/api/story', storyInfo)
+    axios.post('https://remarkable-story-backend.herokuapp.com/api/stories', storyInfo)
         .then(res => console.log(res))
         .catch(err => console.log(err))
 }

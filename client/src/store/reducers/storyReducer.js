@@ -12,7 +12,7 @@ const initialState = {
     error: ''
 }
 
-export const storyFetcher = (state = initialState, action) => {
+export const storyReducer = (state = initialState, action) => {
     switch(action.type){
         case FETCHING_STORIES_START:
             return{

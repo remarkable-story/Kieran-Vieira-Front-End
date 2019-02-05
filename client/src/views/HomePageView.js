@@ -22,7 +22,7 @@ const ConditionalView = homeConditional(HomeContent)
 
 const mapStateToProps = state => {
     return{
-        stories: state.storyFetcher.stories
+        stories: state.storyReducer.stories
     }
 }
 
