@@ -33,8 +33,8 @@ export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE';
 export const signUp = userInfo => dispatch => {
     dispatch({ type:SIGN_UP_START })
     axios.post('https://remarkable-story-backend.herokuapp.com/api/register', userInfo)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        .then(res => dispatch({ type:SIGN_UP_SUCCESS ,payload:res.data }))
+        .catch(err => dispatch({ type:SIGN_UP_FAILURE ,payload:err }))
 }
 
 export const LOG_IN_START = 'LOG_IN_START';
@@ -43,7 +43,7 @@ export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
 
 export const login = userInfo => dispatch => {
     dispatch({ type:LOG_IN_START })
-    axios.post('https://remarkable-story-backend.herokuapp.com/api/register', userInfo)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+    axios.post('https://remarkable-story-backend.herokuapp.com/api/login', userInfo)
+        .then(res => dispatch({ type:LOG_IN_SUCCESS, payload:res.data }))
+        .catch(err =>  dispatch({ type:LOG_IN_FAILURE, payload:err }))
 }

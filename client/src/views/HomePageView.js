@@ -13,7 +13,7 @@ class HomePageView extends React.Component{
 
     render(){
         return(
-            <ConditionalView loggedIn={true} stories={this.props.stories}/>
+            <ConditionalView loggedIn={this.props.token.length > 0} stories={this.props.stories}/>
         )
     }
 }
@@ -22,7 +22,8 @@ const ConditionalView = homeConditional(HomeContent)
 
 const mapStateToProps = state => {
     return{
-        stories: state.storyReducer.stories
+        stories: state.storyReducer.stories,
+        token: state.authenticationReducer.token,
     }
 }
 

@@ -46,7 +46,7 @@ class SignUpView extends React.Component{
                 title: '',
             }
         });
-        this.props.history.push('/')
+        this.props.history.push('/login')
     }
 
     render(){

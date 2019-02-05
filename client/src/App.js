@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { connect } from 'react-redux'
 
 import Navigation from './components/Navigation/Navigation'
 import HomePageView from './views/HomePageView';
@@ -20,9 +21,10 @@ const PageContentContainer = styled.div`
 
 class App extends Component {
   render() {
+    console.log(this.props.token)
     return (
       <div className="App">
-        <Navigation loggedIn={false}/>
+        <Navigation loggedIn={this.props.token.length > 0}/>
         <PageContentContainer>
           <Route exact path='/' component={HomePageView}/>
           <Route path='/saved-stories' component={SavedStoryView}/>
@@ -36,4 +38,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return{
+    token: state.authenticationReducer.token
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);
