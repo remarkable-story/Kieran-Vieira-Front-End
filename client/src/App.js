@@ -7,6 +7,7 @@ import HomePageView from './views/HomePageView';
 import SavedStoryView from './views/SavedStoryView';
 import LoginPageView from './views/LoginPageView';
 import SignUpView from './views/SignUpView';
+import CreateStoryView from './views/CreateStoryView'
 import StoryPageView from './views/StoryPageView'
 
 import './App.css';
@@ -27,6 +28,7 @@ class App extends Component {
           <Route path='/saved-stories' component={SavedStoryView}/>
           <Route path='/login' component={LoginPageView}/>
           <Route path='/sign-up' component={SignUpView}/>
+          <Route path='/create-story' component={CreateStoryView}/>
           <Route path='/story/:id' component={StoryPageView}/>
         </PageContentContainer>
       </div>

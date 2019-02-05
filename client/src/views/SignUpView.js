@@ -34,7 +34,6 @@ class SignUpView extends React.Component{
     signUpUser = e => {
         //send user data to backend here
         e.preventDefault();
-        console.log(this.state.userInfo)
         this.setState({
             userInfo: {
                 username: '',

@@ -13,7 +13,7 @@ class HomePageView extends React.Component{
 
     render(){
         return(
-            <ConditionalView loggedIn={true} stories={this.props.stories}/>
+            <ConditionalView loggedIn={false} stories={this.props.stories}/>
         )
     }
 }
