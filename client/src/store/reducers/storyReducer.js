@@ -4,7 +4,10 @@ import {
     FETCHING_STORIES_FAILURE,
     CREATE_STORY_START,
     CREATE_STORY_SUCCESS,
-    CREATE_STORY_FAILURE
+    CREATE_STORY_FAILURE,
+    DELETE_STORY_START,
+    DELETE_STORY_SUCCESS,
+    DELETE_STORY_FAILURE
 } from '../actions'
 
 const initialState = {
@@ -13,6 +16,7 @@ const initialState = {
     isFetchingStories: false,
     isFetchingStory: false,
     isAddingStory: false,
+    isDeletingStory: false,
     error: ''
 }
 
@@ -55,6 +59,25 @@ export const storyReducer = (state = initialState, action) => {
                 ...state,
                 isAddingStory: false,
                 error: ''
+            }
+        case DELETE_STORY_START:
+            return{
+                ...state,
+                isDeletingStory: true,
+                error: ''
+            }
+        case DELETE_STORY_SUCCESS:
+            return{
+                ...state,
+                stories: action.payload,
+                isDeletingStory: false,
+                error: ''
+            }
+        case DELETE_STORY_FAILURE:
+            return{
+                ...state,
+                isDeletingStory: false,
+                error: action.payload
             }
         default:
             return state

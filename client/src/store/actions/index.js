@@ -26,6 +26,19 @@ export const createStory = (token,storyInfo) => dispatch => {
         .catch(err => dispatch({ type:CREATE_STORY_FAILURE, payload:err }))
 }
 
+export const DELETE_STORY_START = 'DELETE_STORY_START';
+export const DELETE_STORY_SUCCESS = 'DELETE_STORY_SUCCESS';
+export const DELETE_STORY_FAILURE = 'DELETE_STORY_FAILURE';
+
+export const deleteStory = (id,token) => dispatch => {
+    dispatch({ type:DELETE_STORY_START })
+    axios.delete(`https://remarkable-story-backend.herokuapp.com/api/stories/${id}`,{headers: {
+        Authorization: token
+    }})
+        .then(res => dispatch({ type:DELETE_STORY_SUCCESS, payload:res.data }))
+        .catch(err => dispatch({ type:DELETE_STORY_FAILURE, payload:err }))
+}
+
 //---------------------------------------Authentication----------------------------
 
 export const SIGN_UP_START = 'SIGN_UP_START';

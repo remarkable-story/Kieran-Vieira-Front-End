@@ -1,40 +1,52 @@
 import React from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux'
 
-import { fetchStories } from '../store/actions'
+import { deleteStory } from '../store/actions'
 
 class StoryPageView extends React.Component{
+    state={
+        singleStory:{
+            title: '',
+            country: '',
+            story: '',
+            description: '',
+        }
+    }
+
 
     componentDidMount(){
-        this.props.fetchStories();
+        axios.get(`https://remarkable-story-backend.herokuapp.com/api/stories/${this.props.match.params.id}`)
+            .then(res => this.setState({singleStory:res.data[0]}))
+            .catch(err => console.log(err))
     }
 
     render(){
-        const storyId = this.props.match.params.id;
-        const singleStory = this.props.stories.find(story => {
-            return `${story.id}` === storyId
-        })
         return(
-            singleStory ? 
             <div>
-                <h1>{singleStory.title}</h1> 
-                <h2>{singleStory.country}</h2>
-                <p>{singleStory.story}</p>
+                <h1>{this.state.singleStory.title}</h1> 
+                <h2>{this.state.singleStory.country}</h2>
+                <p>{this.state.singleStory.story}</p>
+                <button onClick={() => {
+                    this.props.deleteStory(this.state.singleStory.id, this.props.token);
+                    this.props.history.push('/')
+                }
+                }>Delete</button>
             </div>
-            : <h1>Loading...</h1>
         ) 
     }
 }
 
 const mapStateToProps = state => {
     return{
-        stories: state.storyReducer.stories
+        token: state.authenticationReducer.token,
+        userId: state.authenticationReducer.userId
     }
 }
 
 export default connect(
     mapStateToProps,
     {
-        fetchStories
+        deleteStory
     }
 )(StoryPageView)
