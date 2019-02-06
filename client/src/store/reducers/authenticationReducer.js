@@ -9,6 +9,7 @@ import {
 
 const initialState = {
     token: '',
+    userId: '',
     isLoggingIn: false,
     isSigningUp: false,
     error: ''
@@ -48,6 +49,7 @@ export const authenticationReducer = (state = initialState, action) => {
             return{
                 ...state,
                 token: action.payload.token,
+                userId: action.payload.id,
                 isLoggingIn: false,
                 error: ''
             }
