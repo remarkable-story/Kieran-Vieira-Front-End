@@ -32,7 +32,7 @@ const CreateStory = styled.form`
 
 const CreateStoryForm = props => {
     return(
-        <CreateStory onSubmit={props.submitStory}>
+        <CreateStory onSubmit={props.isUpdating ? props.updateStory : props.submitStory}>
             <h2>Title:</h2>
             <input 
                 type="text" 
@@ -83,7 +83,7 @@ const CreateStoryForm = props => {
                 <option value="Sierra Leone">Sierra Leone</option>
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
-            <button type="submit">Create Story</button>
+            <button type="submit">{props.isUpdating ? 'Update Story' : 'Create Story'}</button>
         </CreateStory>
     )
 }

@@ -7,16 +7,25 @@ import {
     CREATE_STORY_FAILURE,
     DELETE_STORY_START,
     DELETE_STORY_SUCCESS,
-    DELETE_STORY_FAILURE
+    DELETE_STORY_FAILURE,
+    UPDATE_STORY_START,
+    UPDATE_STORY_SUCCESS,
+    UPDATE_STORY_FAILURE
 } from '../actions'
 
 const initialState = {
     stories: [],
-    story:[],
+    updatingData: {
+        title: '',
+        country: '',
+        story: '',
+        description: '',
+    },
     isFetchingStories: false,
     isFetchingStory: false,
     isAddingStory: false,
     isDeletingStory: false,
+    isUpdatingStory: false,
     error: ''
 }
 
@@ -77,6 +86,28 @@ export const storyReducer = (state = initialState, action) => {
             return{
                 ...state,
                 isDeletingStory: false,
+                error: action.payload
+            }
+        case UPDATE_STORY_START:
+            return{
+                ...state,
+                updatingData: action.payload,
+                isUpdatingStory: true,
+                error: ''
+            }
+        case UPDATE_STORY_SUCCESS:
+            return{
+                ...state,
+                stories: action.payload,
+                updatingData: '',
+                isUpdatingStory: false,
+                error: ''
+            }
+        case UPDATE_STORY_FAILURE:
+            return{
+                ...state,
+                updatingData: '',
+                isUpdatingStory: false,
                 error: action.payload
             }
         default:

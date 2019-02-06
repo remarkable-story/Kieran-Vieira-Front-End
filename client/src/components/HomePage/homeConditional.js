@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 
 const homeConditional = HomeContent => props => {
     if(props.loggedIn){
-        return <HomeContent stories={props.stories}/>
+        return <HomeContent 
+            stories={props.stories}
+            isUpdating={props.isUpdating}
+        />
     }
 
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { createStory } from '../store/actions'
+import { createStory, updateStory } from '../store/actions'
 
 import CreateStoryForm from '../components/CreateStoryForm/CreateStoryForm'
 
@@ -22,6 +22,12 @@ class CreateStoryView extends React.Component{
             story: '',
             description: '',
         }
+    }
+
+    componentDidMount(){
+        this.setState({
+            storyInfo: this.props.updatingData
+        })
     }
 
     handleStoryChange = e => {
@@ -46,14 +52,29 @@ class CreateStoryView extends React.Component{
         this.props.history.push('/')
     }
 
+    updateStory = e => {
+        this.props.updateStory(this.props.token, this.state.storyInfo)
+        e.preventDefault();
+        this.setState({
+            storyInfo: {
+                title: '',
+                country: '',
+                description: '',
+            }
+        });
+        this.props.history.push('/');
+    }
+
     render(){
         return(
             <FormContainer>
-                <h1>Create Story</h1>
+                <h1>{this.props.isUpdating ? 'Update Story' : 'Create Story'}</h1>
                 <CreateStoryForm 
                     submitStory={this.submitStory}
                     handleStoryChange={this.handleStoryChange}
+                    updateStory={this.updateStory}
                     storyInfo={this.state.storyInfo}
+                    isUpdating={this.props.isUpdating}
                 />
             </FormContainer>
         )
@@ -63,13 +84,16 @@ class CreateStoryView extends React.Component{
 const mapStateToProps = state => {
     return{
         token: state.authenticationReducer.token,
-        userId: state.authenticationReducer.userId
+        userId: state.authenticationReducer.userId,
+        updatingData: state.storyReducer.updatingData,
+        isUpdating: state.storyReducer.isUpdatingStory
     }
 }
 
 export default connect(
     mapStateToProps,
     {
-        createStory
+        createStory,
+        updateStory
     }
 )(CreateStoryView)

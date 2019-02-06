@@ -25,7 +25,7 @@ const HomeContent = props => {
     return(
         <>
             <StoryBtn>
-                <Link to="/create-story">Create Your Story</Link>
+                <Link to="/create-story">{props.isUpdating ? 'Update Story' : 'Create Your Story'}</Link>
             </StoryBtn>
             <StoryContainer stories={props.stories}/>
         </>

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux'
 
-import { deleteStory } from '../store/actions'
+import { deleteStory, startUpdatingStory } from '../store/actions'
 
 class StoryPageView extends React.Component{
     state={
@@ -11,6 +11,7 @@ class StoryPageView extends React.Component{
             country: '',
             story: '',
             description: '',
+            id: ''
         }
     }
 
@@ -32,6 +33,11 @@ class StoryPageView extends React.Component{
                     this.props.history.push('/')
                 }
                 }>Delete</button>
+                <button onClick={() => {
+                    this.props.startUpdatingStory(this.state.singleStory)
+                    this.props.history.push('/create-story')
+                }
+                }>Update</button>
             </div>
         ) 
     }
@@ -47,6 +53,7 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps,
     {
-        deleteStory
+        deleteStory,
+        startUpdatingStory
     }
 )(StoryPageView)
