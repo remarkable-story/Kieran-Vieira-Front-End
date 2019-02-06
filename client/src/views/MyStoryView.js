@@ -15,7 +15,7 @@ class MyStoryView extends React.Component{
         return(
             <>
                 <h1>My Stories</h1>
-                {this.props.stories.length > 1 ? 
+                {this.props.stories.length > 0 ? 
                 <>
                 <StoryContainer stories={this.props.stories}/>
                 </> :
