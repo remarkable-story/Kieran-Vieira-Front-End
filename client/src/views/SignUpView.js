@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+
+import { signUp } from '../store/actions'
 
 import SignUpForm from '../components/SignUpForm/SignUpForm'
 
@@ -32,9 +35,8 @@ class SignUpView extends React.Component{
     }
 
     signUpUser = e => {
-        //send user data to backend here
+        this.props.signUp(this.state.userInfo)
         e.preventDefault();
-        console.log(this.state.userInfo)
         this.setState({
             userInfo: {
                 username: '',
@@ -44,7 +46,7 @@ class SignUpView extends React.Component{
                 title: '',
             }
         });
-        this.props.history.push('/')
+        this.props.history.push('/login')
     }
 
     render(){
@@ -61,4 +63,15 @@ class SignUpView extends React.Component{
     }
 }
 
-export default SignUpView;
+const mapStateToProps = state => {
+    return{
+
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {
+        signUp
+    }
+)(SignUpView);

@@ -21,11 +21,29 @@ const StoryBtn = styled.div`
     }
 `;
 
+const UserInfo = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50px;
+    margin: 10px auto 15px auto;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    h1{
+        font-weight: 100;
+    }
+`;
+
 const HomeContent = props => {
     return(
         <>
+            <UserInfo>
+                <h1>Username: {localStorage.getItem('userName')}</h1>
+                <h1>Organization Title: {localStorage.getItem('userType')}</h1>
+                <h1>Country: {localStorage.getItem('country')}</h1>
+            </UserInfo>
             <StoryBtn>
-                <Link to="/create-story">Create Your Story</Link>
+                <Link to="/create-story">{props.isUpdating ? 'Update Story' : 'Create Your Story'}</Link>
             </StoryBtn>
             <StoryContainer stories={props.stories}/>
         </>

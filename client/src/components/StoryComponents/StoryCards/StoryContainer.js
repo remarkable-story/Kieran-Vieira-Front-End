@@ -13,7 +13,7 @@ const StoryContainer = props => {
     return(
         <CardContainer>
         {props.stories.map(story => {
-            return <StoryCard story={story}/>
+            return <StoryCard key={story.id} story={story}/>
         })}
         </CardContainer>
     )

@@ -39,6 +39,7 @@ const LoginForm = props => {
                 name="username" 
                 value={props.loginInfo.username}
                 onChange={props.handleLoginChange}
+                required
             />
             <h2>Password:</h2>
             <input 
@@ -46,6 +47,7 @@ const LoginForm = props => {
                 name="password" 
                 value={props.loginInfo.password}
                 onChange={props.handleLoginChange}
+                required
             />
             <button type="submit">Login</button>
         </Login>

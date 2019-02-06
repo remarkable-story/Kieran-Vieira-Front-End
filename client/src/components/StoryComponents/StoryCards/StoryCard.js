@@ -44,7 +44,7 @@ const StoryCard = props => {
             <Link to={`story/${props.story.id}`}>
                 <img src={stockImg} alt=''/>
                 <div>
-                    <h1>{props.story.country}</h1>
+                    <h1>{props.story.title}</h1>
                     <p>{props.story.description}</p>
                 </div>
             </Link>

@@ -20,6 +20,7 @@ const NavBar = styled.div`
                 margin-right: 20px;
                 padding: 5px 15px;
                 &:hover{
+                    cursor: pointer;
                     transition: 0.2s;
                     color: white;
                     background-color: #FBA423
@@ -42,9 +43,18 @@ const Navigation = props => {
                 </div>
                 <div className="nav-right">
                     <NavLink exact to="/">Home</NavLink>
-                    <NavLink to="/saved-stories">Saved Stories</NavLink>
+                    
+                    {props.loggedIn ?
+                    <>
+                        <NavLink to="/my-stories">My Stories</NavLink>
+                        <a onClick={() => {
+                            localStorage.clear();
+                            props.history.push('/login')
+                        }}>Log Out</a>
+                    </>
+                    :
                     <NavLink to="/login">Login</NavLink>
-                    <NavLink to="/sign-up">Sign Up</NavLink>
+                    }
                 </div>
             </div>
         </NavBar>
