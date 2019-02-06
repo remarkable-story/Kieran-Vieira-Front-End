@@ -43,12 +43,15 @@ const Navigation = props => {
                 </div>
                 <div className="nav-right">
                     <NavLink exact to="/">Home</NavLink>
-                    <NavLink to="/my-stories">My Stories</NavLink>
+                    
                     {props.loggedIn ?
-                    <a onClick={() => {
-                        localStorage.clear();
-                        props.history.push('/login')
-                    }}>Log Out</a>
+                    <>
+                        <NavLink to="/my-stories">My Stories</NavLink>
+                        <a onClick={() => {
+                            localStorage.clear();
+                            props.history.push('/login')
+                        }}>Log Out</a>
+                    </>
                     :
                     <NavLink to="/login">Login</NavLink>
                     }
