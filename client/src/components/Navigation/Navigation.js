@@ -43,7 +43,7 @@ const Navigation = props => {
                 </div>
                 <div className="nav-right">
                     <NavLink exact to="/">Home</NavLink>
-                    <NavLink to="/saved-stories">Saved Stories</NavLink>
+                    <NavLink to="/my-stories">My Stories</NavLink>
                     {props.loggedIn ?
                     <a onClick={() => {
                         localStorage.clear();

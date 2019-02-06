@@ -56,6 +56,17 @@ export const updateStory = (token, storyInfo) => dispatch => {
         .catch(err => dispatch({ type:UPDATE_STORY_FAILURE, payload:err }))
 }
 
+export const FETCH_MY_STORIES_START = 'FETCH_MY_STORIES_START';
+export const FETCH_MY_STORIES_SUCCESS = 'FETCH_MY_STORIES_SUCCESS';
+export const FETCH_MY_STORIES_FAILURE = 'FETCH_MY_STORIES_FAILURE';
+
+export const fetchMyStories = (token, id) => dispatch => {
+    dispatch({ type: FETCH_MY_STORIES_START })
+    axios.get(`https://remarkable-story-backend.herokuapp.com/mystories/${id}`, {headers: {Authorization: token}})
+        .then(res => dispatch({ type:FETCH_MY_STORIES_SUCCESS, payload:res.data }))
+        .catch(err => dispatch({ type:FETCH_MY_STORIES_FAILURE, payload:err }))
+}
+
 //---------------------------------------Authentication----------------------------
 
 export const SIGN_UP_START = 'SIGN_UP_START';
