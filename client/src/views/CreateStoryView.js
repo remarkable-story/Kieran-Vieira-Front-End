@@ -46,6 +46,7 @@ class CreateStoryView extends React.Component{
             storyInfo: {
                 title: '',
                 country: '',
+                story: '',
                 description: '',
             }
         });

@@ -38,6 +38,7 @@ class StoryPageView extends React.Component{
                     this.props.history.push('/create-story')
                 }
                 }>Update</button>
+                <button>Donate</button>
             </div>
         ) 
     }
