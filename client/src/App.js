@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import styled from 'styled-components';
-import { connect } from 'react-redux'
 
 import Navigation from './components/Navigation/Navigation'
 import HomePageView from './views/HomePageView';
@@ -23,8 +22,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navigation loggedIn={this.props.token.length > 0}/>
         <PageContentContainer>
+          <Route path='/' render={props => <Navigation {...props} loggedIn={localStorage.getItem('loggedIn')}/>}/>
           <Route exact path='/' component={HomePageView}/>
           <Route path='/saved-stories' component={SavedStoryView}/>
           <Route path='/login' component={LoginPageView}/>
@@ -37,13 +36,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return{
-    token: state.authenticationReducer.token
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(App);
+export default App;

@@ -54,7 +54,7 @@ class CreateStoryView extends React.Component{
     }
 
     updateStory = e => {
-        this.props.updateStory(this.props.token, this.state.storyInfo)
+        this.props.updateStory(this.props.token, {...this.state.storyInfo, user_id: this.props.userId})
         e.preventDefault();
         this.setState({
             storyInfo: {

@@ -15,7 +15,8 @@ class HomePageView extends React.Component{
         return(
             <>
                 <ConditionalView 
-                    loggedIn={this.props.token.length > 0} 
+                    loggedIn={localStorage.getItem('loggedIn')} 
+                    userType={localStorage.getItem('userType')}
                     stories={this.props.stories}
                     isUpdating={this.props.isUpdating}
                 />

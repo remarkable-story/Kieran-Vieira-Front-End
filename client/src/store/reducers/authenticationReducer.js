@@ -25,6 +25,10 @@ export const authenticationReducer = (state = initialState, action) => {
                 error: '',
             }
         case SIGN_UP_SUCCESS:
+            localStorage.setItem('loggedIn', true)
+            localStorage.setItem('token', action.payload.token)
+            localStorage.setItem('userId', action.payload.id)
+            localStorage.setItem('userType', action.payload.type)
             return{
                 ...state,
                 token: action.payload.token,
@@ -46,6 +50,10 @@ export const authenticationReducer = (state = initialState, action) => {
                 error: ''
             }
         case LOG_IN_SUCCESS:
+            localStorage.setItem('loggedIn', true)
+            localStorage.setItem('token', action.payload.token)
+            localStorage.setItem('userId', action.payload.id)
+            localStorage.setItem('userType', action.payload.type)
             return{
                 ...state,
                 token: action.payload.token,
