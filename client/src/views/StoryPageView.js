@@ -29,7 +29,7 @@ class StoryPageView extends React.Component{
                 <h2>{this.state.singleStory.country}</h2>
                 <p>{this.state.singleStory.story}</p>
                 <button onClick={() => {
-                    this.props.deleteStory(this.state.singleStory.id, this.props.token);
+                    this.props.deleteStory(this.state.singleStory.id, localStorage.getItem('token'));
                     this.props.history.push('/')
                 }
                 }>Delete</button>

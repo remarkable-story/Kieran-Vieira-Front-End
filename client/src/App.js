@@ -13,7 +13,7 @@ import StoryPageView from './views/StoryPageView'
 import './App.css';
 
 const PageContentContainer = styled.div`
-  width: 85%;
+  width: 1100px;
   margin: 15px auto;
   text-align: center;
 `;

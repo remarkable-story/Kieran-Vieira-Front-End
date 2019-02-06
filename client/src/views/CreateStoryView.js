@@ -40,7 +40,7 @@ class CreateStoryView extends React.Component{
     }
 
     submitStory = e => {
-        this.props.createStory(this.props.token, {...this.state.storyInfo, user_id: this.props.userId});
+        this.props.createStory(localStorage.getItem('token'), {...this.state.storyInfo, user_id: localStorage.getItem('userId')});
         e.preventDefault();
         this.setState({
             storyInfo: {
@@ -54,7 +54,7 @@ class CreateStoryView extends React.Component{
     }
 
     updateStory = e => {
-        this.props.updateStory(this.props.token, {...this.state.storyInfo, user_id: this.props.userId})
+        this.props.updateStory(localStorage.getItem('token'), {...this.state.storyInfo, user_id: localStorage.getItem('userId')})
         e.preventDefault();
         this.setState({
             storyInfo: {
@@ -84,8 +84,6 @@ class CreateStoryView extends React.Component{
 
 const mapStateToProps = state => {
     return{
-        token: state.authenticationReducer.token,
-        userId: state.authenticationReducer.userId,
         updatingData: state.storyReducer.updatingData,
         isUpdating: state.storyReducer.isUpdatingStory
     }

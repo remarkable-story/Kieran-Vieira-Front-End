@@ -16,7 +16,9 @@ class MyStoryView extends React.Component{
             <>
                 <h1>My Stories</h1>
                 {this.props.stories.length > 1 ? 
-                <StoryContainer stories={this.props.stories}/> :
+                <>
+                <StoryContainer stories={this.props.stories}/>
+                </> :
                 <h1>You have no stories... <Link to="/create-story">Create one?</Link></h1>
                 }
             </>
