@@ -28,17 +28,21 @@ class StoryPageView extends React.Component{
                 <h1>{this.state.singleStory.title}</h1> 
                 <h2>{this.state.singleStory.country}</h2>
                 <p>{this.state.singleStory.story}</p>
-                <button onClick={() => {
-                    this.props.deleteStory(this.state.singleStory.id, localStorage.getItem('token'));
-                    this.props.history.push('/')
+                {localStorage.getItem('userType') === 'coordinator' &&
+                <>
+                    <button onClick={() => {
+                        this.props.deleteStory(this.state.singleStory.id, localStorage.getItem('token'));
+                        this.props.history.push('/')
+                    }}>Delete</button>
+                    <button onClick={() => {
+                        this.props.startUpdatingStory(this.state.singleStory)
+                        this.props.history.push('/create-story')
+                    }}>Update</button>
+                </>
                 }
-                }>Delete</button>
-                <button onClick={() => {
-                    this.props.startUpdatingStory(this.state.singleStory)
-                    this.props.history.push('/create-story')
+                {localStorage.getItem('userType') === 'donator' &&
+                    <button>Donate</button>
                 }
-                }>Update</button>
-                <button>Donate</button>
             </div>
         ) 
     }

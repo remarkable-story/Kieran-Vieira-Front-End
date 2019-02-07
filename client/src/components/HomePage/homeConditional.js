@@ -14,7 +14,7 @@ const homeConditional = HomeContent => props => {
         props.isLoggingIn ?
         <h1>logging in...</h1>:
         <Link to="/login">
-            <h1>Login to view components</h1>
+            <h1>Login to view stories</h1>
         </Link>
     )
 }

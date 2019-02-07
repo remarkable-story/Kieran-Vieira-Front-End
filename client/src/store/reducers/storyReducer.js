@@ -18,6 +18,7 @@ import {
 
 const initialState = {
     stories: [],
+    myStories: [],
     updatingData: {
         title: '',
         country: '',
@@ -123,7 +124,7 @@ export const storyReducer = (state = initialState, action) => {
         case FETCH_MY_STORIES_SUCCESS:
             return{
                 ...state,
-                stories: action.payload,
+                myStories: action.payload,
                 isFetchingMyStories: false,
                 error: ''
             }
