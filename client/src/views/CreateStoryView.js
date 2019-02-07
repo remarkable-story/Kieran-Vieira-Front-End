@@ -68,6 +68,7 @@ class CreateStoryView extends React.Component{
 
     render(){
         return(
+            localStorage.getItem('userType') === 'coordinator'?
             <FormContainer>
                 <h1>{this.props.isUpdating ? 'Update Story' : 'Create Story'}</h1>
                 <CreateStoryForm 
@@ -77,7 +78,8 @@ class CreateStoryView extends React.Component{
                     storyInfo={this.state.storyInfo}
                     isUpdating={this.props.isUpdating}
                 />
-            </FormContainer>
+            </FormContainer> :
+            <h1>This page is only for Co-Ordinators</h1>
         )
     }
 }

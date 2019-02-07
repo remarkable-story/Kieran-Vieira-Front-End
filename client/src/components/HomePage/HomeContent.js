@@ -42,9 +42,14 @@ const HomeContent = props => {
                 <h1>Organization Title: {localStorage.getItem('userType')}</h1>
                 <h1>Country: {localStorage.getItem('country')}</h1>
             </UserInfo>
+            {localStorage.getItem('userType') === 'coordinator' ?
             <StoryBtn>
                 <Link to="/create-story">{props.isUpdating ? 'Update Story' : 'Create Your Story'}</Link>
+            </StoryBtn> :
+            <StoryBtn>
+                <Link to="/add-donation">Donate</Link>
             </StoryBtn>
+            }
             <StoryContainer stories={props.stories}/>
         </>
     )

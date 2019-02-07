@@ -64,7 +64,7 @@ const SignUpForm = props => {
                         onChange={props.handleSignUpChange}
                         required
                     >
-                        <option value disabled>select an option</option>
+                        <option value>select an option</option>
                         <option value="Brazil">Brazil</option>
                         <option value="Bolvia">Bolvia</option>
                         <option value="Cambodia">Cambodia</option>

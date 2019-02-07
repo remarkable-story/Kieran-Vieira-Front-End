@@ -9,20 +9,14 @@ const homeConditional = HomeContent => props => {
             isUpdating={props.isUpdating}
         />
     }
-
+    console.log(props.isLoggingIn)
     return (
         props.isLoggingIn ?
         <h1>logging in...</h1>:
         <Link to="/login">
-            <h1>Login to view components</h1>
+            <h1>Login to view stories</h1>
         </Link>
     )
-}
-
-const mapStateToProps = state => {
-    return{
-        isLoggingIn: state.authenticationReducer.isLoggingIn
-    }
 }
 
 export default homeConditional

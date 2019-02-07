@@ -66,6 +66,29 @@ export const fetchMyStories = (token, id) => dispatch => {
         .then(res => dispatch({ type:FETCH_MY_STORIES_SUCCESS, payload:res.data }))
         .catch(err => dispatch({ type:FETCH_MY_STORIES_FAILURE, payload:err }))
 }
+//---------------------------------------Donations----------------------------
+
+export const ADD_DONATION_START = 'ADD_DONATION_START'
+export const ADD_DONATION_SUCCESS = 'ADD_DONATION_SUCCESS'
+export const ADD_DONATION_FAILURE = 'ADD_DONATION_FAILURE'
+
+export const addDonation = donationInfo => dispatch => {
+    dispatch({ type:ADD_DONATION_START })
+    axios.post('https://remarkable-story-backend.herokuapp.com/api/donations', donationInfo)
+        .then(res => dispatch({ type:ADD_DONATION_SUCCESS, payload:res.data }))
+        .catch(err => dispatch({ type:ADD_DONATION_FAILURE, payload:err }))
+}
+
+export const FETCH_DONATION_START = 'FETCH_DONATION_START';
+export const FETCH_DONATION_SUCCESS = 'FETCH_DONATION_SUCCESS';
+export const FETCH_DONATION_FAILURE = 'FETCH_DONATION_FAILURE';
+
+export const fetchDonations = () => dispatch => {
+    dispatch({ type: FETCH_DONATION_START })
+    axios.get('https://remarkable-story-backend.herokuapp.com/api/donations')
+        .then(res => dispatch({ type:FETCH_DONATION_SUCCESS, payload:res.data }))
+        .catch(err => dispatch({ type:FETCH_DONATION_FAILURE, payload:err }))
+}
 
 //---------------------------------------Authentication----------------------------
 

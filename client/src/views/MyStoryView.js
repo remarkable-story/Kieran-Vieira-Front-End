@@ -13,22 +13,24 @@ class MyStoryView extends React.Component{
 
     render(){
         return(
+            localStorage.getItem('userType') === 'coordinator' ?
             <>
                 <h1>My Stories</h1>
-                {this.props.stories.length > 0 ? 
+                {this.props.myStories.length > 0 ? 
                 <>
-                <StoryContainer stories={this.props.stories}/>
+                <StoryContainer stories={this.props.myStories}/>
                 </> :
                 <h1>You have no stories... <Link to="/create-story">Create one?</Link></h1>
                 }
-            </>
+            </>:
+            <h1>This page is only for Co-Ordinators</h1>
         )
     }
 }
 
 const mapStateToProps = state => {
     return{
-        stories: state.storyReducer.stories,
+        myStories: state.storyReducer.myStories,
         isUpdating: state.storyReducer.isUpdatingStory
     }
 }
