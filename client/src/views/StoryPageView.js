@@ -31,9 +31,14 @@ const StoryContainer = styled.div`
             width: 65%;
             margin: 10px auto 20px auto;
             text-align: start;
+            @media (max-width: 720px){
+                width: 95%;
+            }
         }
     }
-    
+    @media (max-width: 720px){
+        margin-top: 20px;
+    }
 `;
 
 const Btn = styled.button`

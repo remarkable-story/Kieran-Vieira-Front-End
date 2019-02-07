@@ -25,11 +25,22 @@ const NavBar = styled.div`
                     color: white;
                     background-color: #FBA423
                 }
+                @media (max-width: 720px){
+                    margin: 0 5px;
+                }
             }
             .active{
                 color: white;
                 background-color: #FBA423
             }
+        }
+        @media (max-width: 1100px){
+            width: 95%;
+        }
+        @media (max-width: 720px){
+            flex-direction: column;
+            height: unset;
+            width: 95%;
         }
     }
 `;

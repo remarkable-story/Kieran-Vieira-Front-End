@@ -9,6 +9,13 @@ const Loading = styled.img`
     margin: 0 auto;
 `;
 
+const Header = styled.h1`
+    font-weight: 100;
+    a{
+        text-decoration: none
+    }
+`;
+
 const homeConditional = HomeContent => props => {
     if(props.loggedIn){
         return <HomeContent 
@@ -20,9 +27,7 @@ const homeConditional = HomeContent => props => {
     return (
         props.isLoggingIn ?
         <Loading src={LoadingGif} alt="Logging In..."/>:
-        <Link to="/login">
-            <h1>Login to view stories</h1>
-        </Link>
+        <Header><Link to="/login">Login to view stories</Link></Header>
     )
 }
 

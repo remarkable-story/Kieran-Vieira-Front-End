@@ -18,7 +18,8 @@ const DonationItem = styled.div`
         align-items: center;
         align-content: center;
         h2{
-            margin-left: 5px
+            margin-left: 5px;
+            font-weight: 100;
         }
     }
 `;
