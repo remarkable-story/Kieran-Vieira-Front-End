@@ -43,8 +43,7 @@ const Navigation = props => {
                 </div>
                 <div className="nav-right">
                     <NavLink exact to="/">Home</NavLink>
-                    
-                    {props.loggedIn ?
+                    {localStorage.getItem('loggedIn') ?
                     <>
                         {localStorage.getItem('userType') === 'coordinator' ?
                         <NavLink to="/my-stories">My Stories</NavLink>  :

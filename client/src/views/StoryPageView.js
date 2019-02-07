@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { deleteStory, startUpdatingStory } from '../store/actions'
 
@@ -41,7 +42,7 @@ class StoryPageView extends React.Component{
                 </>
                 }
                 {localStorage.getItem('userType') === 'donator' &&
-                    <button>Donate</button>
+                    <Link to='/add-donation'>Donate</Link>
                 }
             </div>
         ) 
