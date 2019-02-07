@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Navigation from './components/Navigation/Navigation'
 import HomePageView from './views/HomePageView';
 import MyStoryView from './views/MyStoryView';
+import MyDonationsView from './views/MyDonationsView';
 import LoginPageView from './views/LoginPageView';
 import SignUpView from './views/SignUpView';
 import CreateStoryView from './views/CreateStoryView'
@@ -26,6 +27,7 @@ class App extends Component {
           <Route path='/' render={props => <Navigation {...props} loggedIn={localStorage.getItem('loggedIn')}/>}/>
           <Route exact path='/' component={HomePageView}/>
           <Route path='/my-stories' component={MyStoryView}/>
+          <Route path='/my-donations' component={MyDonationsView}/>
           <Route path='/login' component={LoginPageView}/>
           <Route path='/sign-up' component={SignUpView}/>
           <Route path='/create-story' component={CreateStoryView}/>

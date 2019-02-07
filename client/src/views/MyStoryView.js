@@ -13,6 +13,7 @@ class MyStoryView extends React.Component{
 
     render(){
         return(
+            localStorage.getItem('userType') === 'coordinator' ?
             <>
                 <h1>My Stories</h1>
                 {this.props.myStories.length > 0 ? 
@@ -21,7 +22,8 @@ class MyStoryView extends React.Component{
                 </> :
                 <h1>You have no stories... <Link to="/create-story">Create one?</Link></h1>
                 }
-            </>
+            </>:
+            <h1>This page is only for Co-Ordinators</h1>
         )
     }
 }
