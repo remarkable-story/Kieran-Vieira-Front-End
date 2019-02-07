@@ -28,7 +28,7 @@ const DonationCard = props => {
         <DonationItem>
             <div>
                 <h2>Amount:</h2>
-                <h2>{props.donation.amount}</h2>
+                <h2>${props.donation.amount}</h2>
             </div>
             {props.donation.name && 
             <div>

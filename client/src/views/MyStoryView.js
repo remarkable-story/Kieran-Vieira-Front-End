@@ -4,7 +4,23 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { fetchMyStories } from '../store/actions';
+
 import StoryContainer from '../components/StoryComponents/StoryCards/StoryContainer';
+import LoadingGif from '../assets/loading.gif';
+
+const Header = styled.h1`
+    font-weight: 100;
+    a{
+        text-decoration: none
+    }
+`;
+
+const Loading = styled.img`
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
+`;
+
 
 class MyStoryView extends React.Component{
     componentDidMount(){
@@ -15,15 +31,17 @@ class MyStoryView extends React.Component{
         return(
             localStorage.getItem('userType') === 'coordinator' ?
             <>
-                <h1>My Stories</h1>
+                <Header>My Stories</Header>
                 {this.props.myStories.length > 0 ? 
                 <>
                 <StoryContainer stories={this.props.myStories}/>
                 </> :
-                <h1>You have no stories... <Link to="/create-story">Create one?</Link></h1>
+                this.props.isFetchingMyStories ?
+                <Loading src={LoadingGif} alt="Loading Your Stories..."/> :
+                <h2>You have no stories... <Link to="/create-story">Create one?</Link></h2>
                 }
             </>:
-            <h1>This page is only for Co-Ordinators</h1>
+            <Header>This page is only for Co-Ordinators</Header>
         )
     }
 }
@@ -31,7 +49,8 @@ class MyStoryView extends React.Component{
 const mapStateToProps = state => {
     return{
         myStories: state.storyReducer.myStories,
-        isUpdating: state.storyReducer.isUpdatingStory
+        isUpdating: state.storyReducer.isUpdatingStory,
+        isFetchingMyStories: state.storyReducer.isFetchingMyStories
     }
 }
 

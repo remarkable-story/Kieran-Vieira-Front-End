@@ -34,7 +34,8 @@ const Story = styled.div`
     }
     &:hover{
         transition: 0.2s;
-        transform: scale(1.04);
+        transform: translateY(-5px);
+        box-shadow: 0px 3px 15px rgba(0,0,0,.25);
     }
 `;
 
