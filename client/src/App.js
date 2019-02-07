@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Navigation from './components/Navigation/Navigation'
 import HomePageView from './views/HomePageView';
 import MyStoryView from './views/MyStoryView';
-import MyDonationsView from './views/MyDonationsView';
+import DonationsView from './views/DonationsView';
 import AddDonationView from './views/AddDonationView';
 import LoginPageView from './views/LoginPageView';
 import SignUpView from './views/SignUpView';
@@ -28,7 +28,7 @@ class App extends Component {
           <Route path='/' component={Navigation}/>
           <Route exact path='/' component={HomePageView}/>
           <Route path='/my-stories' component={MyStoryView}/>
-          <Route path='/my-donations' component={MyDonationsView}/>
+          <Route path='/donations' component={DonationsView}/>
           <Route path='/login' component={LoginPageView}/>
           <Route path='/sign-up' component={SignUpView}/>
           <Route path='/create-story' component={CreateStoryView}/>

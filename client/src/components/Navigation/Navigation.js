@@ -47,7 +47,7 @@ const Navigation = props => {
                     <>
                         {localStorage.getItem('userType') === 'coordinator' ?
                         <NavLink to="/my-stories">My Stories</NavLink>  :
-                        <NavLink to='/my-donations'>My Donations</NavLink>
+                        <NavLink to='/donations'>Donations</NavLink>
                         }
                         <a onClick={() => {
                             localStorage.clear();
