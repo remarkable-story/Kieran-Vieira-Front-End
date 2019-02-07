@@ -18,6 +18,9 @@ const PageContentContainer = styled.div`
   width: 1100px;
   margin: 15px auto;
   text-align: center;
+  @media (max-width: 1100px){
+    width: 95%;
+  }
 `;
 
 class App extends Component {

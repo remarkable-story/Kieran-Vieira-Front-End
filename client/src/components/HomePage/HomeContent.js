@@ -29,8 +29,14 @@ const UserInfo = styled.div`
     margin: 10px auto 15px auto;
     border: 1px solid lightgrey;
     border-radius: 2px;
+    font-size: 0.9rem;
     h1{
         font-weight: 100;
+    }
+    @media (max-width: 720px){
+        flex-direction: column;
+        height: unset;
+        margin-top: 20px;
     }
 `;
 

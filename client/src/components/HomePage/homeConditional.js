@@ -1,6 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import LoadingGif from '../../assets/loading.gif';
+
+const Loading = styled.img`
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
+`;
+
+const Header = styled.h1`
+    font-weight: 100;
+    a{
+        text-decoration: none
+    }
+`;
 
 const homeConditional = HomeContent => props => {
     if(props.loggedIn){
@@ -12,10 +26,8 @@ const homeConditional = HomeContent => props => {
     console.log(props.isLoggingIn)
     return (
         props.isLoggingIn ?
-        <h1>logging in...</h1>:
-        <Link to="/login">
-            <h1>Login to view stories</h1>
-        </Link>
+        <Loading src={LoadingGif} alt="Logging In..."/>:
+        <Header><Link to="/login">Login to view stories</Link></Header>
     )
 }
 

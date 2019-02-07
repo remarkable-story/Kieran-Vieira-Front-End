@@ -4,12 +4,27 @@ import styled from 'styled-components';
 
 import { fetchDonations } from '../store/actions';
 
-import DonationCard from '../components/Donations/DonationCard'
+import DonationCard from '../components/Donations/DonationCard';
+import LoadingGif from '../assets/loading.gif';
 
 const DonationsContainer = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
+`;
+
+const Header = styled.h1`
+    font-weight: 100;
+    a{
+        text-decoration: none
+    }
+`;
+
+const Loading = styled.img`
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
 `;
 
 class MyDonationsView extends React.Component{
@@ -22,15 +37,15 @@ class MyDonationsView extends React.Component{
             <DonationsContainer>
                 {localStorage.getItem('userType') === 'donator' ?
                 <>
-                    <h1>Donations:</h1>
+                    <Header>Donations</Header>
                     {this.props.donations.length > 0 ?
                         this.props.donations.map(donation => {
                             return <DonationCard donation={donation}/>
                         }) :
-                    <h1>loading donations...</h1>
+                    <Loading src={LoadingGif} alt="loading donations..."/>
                 }
                 </> :
-                <h1>This page is only for Donators.</h1>
+                <Header>This page is only for Donators.</Header>
                 }
             </DonationsContainer>
         )

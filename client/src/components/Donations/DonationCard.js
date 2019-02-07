@@ -18,7 +18,8 @@ const DonationItem = styled.div`
         align-items: center;
         align-content: center;
         h2{
-            margin-left: 5px
+            margin-left: 5px;
+            font-weight: 100;
         }
     }
 `;
@@ -28,7 +29,7 @@ const DonationCard = props => {
         <DonationItem>
             <div>
                 <h2>Amount:</h2>
-                <h2>{props.donation.amount}</h2>
+                <h2>${props.donation.amount}</h2>
             </div>
             {props.donation.name && 
             <div>

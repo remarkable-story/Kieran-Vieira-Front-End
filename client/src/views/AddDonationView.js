@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { addDonation } from '../store/actions';
 
-import DonationForm from '../components/DonationForm/DonationForm';
+import DonationForm from '../components/Donations/DonationForm';
 
 const FormContainer = styled.div`
     width: 350px;
@@ -63,14 +63,10 @@ class AddDonationView extends React.Component{
     }
 }
 
-const mapStateToProps = state => {
-    return{
 
-    }
-}
 
 export default connect(
-    mapStateToProps,
+    null,
     {
         addDonation
     }

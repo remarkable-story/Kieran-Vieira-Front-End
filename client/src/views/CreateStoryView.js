@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { createStory, updateStory } from '../store/actions'
 
-import CreateStoryForm from '../components/CreateStoryForm/CreateStoryForm'
+import CreateStoryForm from '../components/StoryComponents/CreateStoryForm'
 
 const FormContainer = styled.div`
     width: 350px;
