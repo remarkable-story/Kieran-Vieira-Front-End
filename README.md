@@ -3,13 +3,13 @@ Front end for Remarkable Story project.
 
 # Tech Used:
 
-[React 16.7.0](https://reactjs.org/docs/getting-started.html)
-[React Redux 6.0.0](https://redux.js.org/basics/usage-with-react)
-[React Router 4.3.1](https://reacttraining.com/react-router/core/guides/philosophy)
-[Redux 4.0.1](https://redux.js.org/)
-[Redux Logger 3.0.6](https://redux.js.org/advanced/middleware)
-[Redux Thunk 2.3.0"](https://redux.js.org/advanced/middleware)
-[Styled Components 4.1.3](https://www.styled-components.com/)
+* [React 16.7.0](https://reactjs.org/docs/getting-started.html)
+* [React Redux 6.0.0](https://redux.js.org/basics/usage-with-react)
+* [React Router 4.3.1](https://reacttraining.com/react-router/core/guides/philosophy)
+* [Redux 4.0.1](https://redux.js.org/)
+* [Redux Logger 3.0.6](https://redux.js.org/advanced/middleware)
+* [Redux Thunk 2.3.0"](https://redux.js.org/advanced/middleware)
+* [Styled Components 4.1.3](https://www.styled-components.com/)
 
 # File Structure:
 
