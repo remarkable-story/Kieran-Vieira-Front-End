@@ -43,4 +43,4 @@ I am a Full Stack Web Developer and Graphic designer looking to improve user exp
 * Website: http://kieranvieira.com/
 * Instagram: [@VieiraIllustration](https://www.instagram.com/vieiraillustration/)
 
-## The website is hosted here: https://deploy-preview-2--nostalgic-roentgen-f369b4.netlify.com/
+## The website is hosted [here](https://5c5ccb2904bd58e197f3056f--sharp-tereshkova-a037b6.netlify.com/)
