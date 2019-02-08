@@ -33,6 +33,8 @@ Most of the calls send dispatch actions to their respective reducer file which c
 
 State is then passed down into components by using react-redux connect HOC which maps state to props etc.
 
+Backend is hosted [here](https://remarkable-story-backend.herokuapp.com)
+
 # About me and contact info
 
 I am a Full Stack Web Developer and Graphic designer looking to improve user experience and interfaces on many levels. 
